@@ -24,8 +24,10 @@ class Menu:
 
             choice = input("Enter choice: ").strip()
 
-            if choice.isdigit():
-                choice = int(choice)
+            if not choice.isdigit():
+                print("Invalid input")
+                continue
+            choice = int(choice)
 
             if choice == 1:
                 signup_obj.signup()

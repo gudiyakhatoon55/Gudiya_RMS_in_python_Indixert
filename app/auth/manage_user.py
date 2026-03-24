@@ -1,6 +1,29 @@
 import uuid
 from app.database.file_handler import write_user, read_users
 
+import msvcrt
+
+def input_password(prompt="Enter password: "):
+    print(prompt, end="", flush=True)
+
+    password = ""
+
+    while True:
+        char = msvcrt.getch()
+
+        if char == b'\r':
+            print()
+            break
+        elif char == b'\x08':
+            if password:
+                password = password[:-1]
+                print("\b \b", end="", flush=True)
+        else:
+            password += char.decode()
+            print("*", end="", flush=True)
+
+    return password
+
 class ManageUser:
 
     def add_staff(self):
@@ -8,8 +31,8 @@ class ManageUser:
         user_id = str(uuid.uuid4())
 
         username = input("Enter staff name: ")
-        email = input("Enter staff email: ")
-        password = input("Enter password: ")
+        email = input("Enter email: ")
+        password = input_password("Enter password: ")
 
         users = read_users()
 
@@ -29,10 +52,3 @@ class ManageUser:
         write_user(user)
 
         print("Staff added successfully")
-
-    def view_users(self):
-
-        users = read_users()
-
-        for user in users:
-            print(user)

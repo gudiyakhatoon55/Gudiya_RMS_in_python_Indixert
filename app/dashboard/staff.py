@@ -1,6 +1,9 @@
+from app.auth.manage_user import ManageUser
+
 class StaffDashboard:
 
     def start(self):
+
 
         while True:
 
@@ -13,18 +16,10 @@ class StaffDashboard:
 
             choice = input("Enter choice: ").strip()
 
-            if choice.isdigit():
-                choice = int(choice)
+            if not choice.isdigit():
+                print("Invalid input")
+                continue
+            choice = int(choice)
 
 
-            if choice == 1:
-                print("Order system coming soon")
-
-            elif choice == 2:
-                print("Billing system coming soon")
-
-            elif choice == 3:
-                break
-
-            else:
-                print("Invalid choice")
+            print("Invalid choice")

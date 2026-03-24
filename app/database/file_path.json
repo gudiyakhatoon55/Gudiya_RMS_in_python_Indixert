@@ -5,5 +5,12 @@
         "email": "gudiya@gmail.com",
         "password": "gudiya@55",
         "role": "staff"
+    },
+    {
+        "id": "12e1d40b-b078-4de7-8883-f91fc49c86a7",
+        "username": "muskan",
+        "email": "muskan@gmail.com",
+        "password": "muskan@66",
+        "role": "staff"
     }
 ]
