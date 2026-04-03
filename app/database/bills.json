@@ -1,0 +1,16 @@
+[
+    {
+        "date": "2026-04-03 11:50:08.465431",
+        "items": [
+            {
+                "name": "Lemon Soda",
+                "size": "Half",
+                "price": 20,
+                "qty": 2
+            }
+        ],
+        "total": 40,
+        "gst": 2.0,
+        "grand_total": 42.0
+    }
+]

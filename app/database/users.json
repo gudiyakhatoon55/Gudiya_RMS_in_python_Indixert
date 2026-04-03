@@ -1,10 +1,16 @@
 [
-
     {
         "id": "76a7fb07-9dd1-435e-a96a-1579f2017e2f",
         "name": "neha",
         "email": "neha@gmail.com",
         "password": "neha123",
+        "role": "staff"
+    },
+    {
+        "id": "6ea0497c-a003-4547-9793-7a3750094765",
+        "name": "gudiya",
+        "email": "gudiya@gmail.com",
+        "password": "gudiya@1234",
         "role": "staff"
     }
 ]
