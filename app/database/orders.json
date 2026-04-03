@@ -1,10 +1,17 @@
 [
-   
     [
         {
             "name": "Corn Salad",
             "size": "Half",
             "price": 50,
+            "qty": 2
+        }
+    ],
+    [
+        {
+            "name": "Lemon Soda",
+            "size": "Half",
+            "price": 20,
             "qty": 2
         }
     ]
