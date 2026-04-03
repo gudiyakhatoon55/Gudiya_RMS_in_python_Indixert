@@ -1,33 +1,3 @@
-# from app.database.filehandler import FileHandler
-# import getpass
-
-# class Login:
-
-#     def __init__(self):
-#         self.file = FileHandler()
-
-#     def login(self):
-#         print("\n====== LOGIN ======")
-
-#         email = input("Enter Email: ")
-#         password = getpass.getpass("Enter Password: ")
-
-#         users = self.file.read_file("users.json")
-
-#         if not users:
-#             print("No users found! Please signup first.")
-#             return False
-
-#         for user in users:
-#             if user["email"] == email and user["password"] == password:
-#                 print("Login Successful ")
-#                 return True
-
-#         return False
-
-
-
-
 from app.database.filehandler import FileHandler
 import getpass
 

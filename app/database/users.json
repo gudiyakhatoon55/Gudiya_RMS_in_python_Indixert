@@ -1,14 +1,10 @@
 [
+
     {
-        "name": "Gudiya Kumari",
-        "email": "gk@gmail.com",
-        "password": "123456",
-        "role": "admin"
-    },
-    {
-        "name": "saloni",
-        "email": "saloni@gmail.com",
-        "password": "saloni@123",
+        "id": "76a7fb07-9dd1-435e-a96a-1579f2017e2f",
+        "name": "neha",
+        "email": "neha@gmail.com",
+        "password": "neha123",
         "role": "staff"
     }
 ]

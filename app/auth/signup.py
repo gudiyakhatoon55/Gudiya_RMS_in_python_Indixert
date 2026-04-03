@@ -1,38 +1,6 @@
-# from app.database.filehandler import FileHandler
-# import getpass
-
-# class Signup:
-
-#     def __init__(self):
-#         self.file = FileHandler()
-
-#     def register(self):
-#         name = input("Enter Name: ")
-#         email = input("Enter Email: ")
-        
-    
-#         password = getpass.getpass("Enter Password: ")
-#         confirm_password = getpass.getpass("Confirm Password: ")
-
-        
-#         if password != confirm_password:
-#             print("Passwords do not match!")
-#             return
-
-#         user = {
-#             "name": name,
-#             "email": email,
-#             "password": password
-#         }
-
-#         self.file.append_file("users.json", user)
-
-#         print("Signup Successfully!")
-
-
-
 from app.database.filehandler import FileHandler
 import getpass
+import uuid
 
 
 class Signup:
@@ -43,6 +11,7 @@ class Signup:
     def register(self):
         print("\n====== SIGNUP ======")
 
+        user_id = str(uuid.uuid4())
 
         name = input("Enter Name: ")
         email = input("Enter Email: ")
@@ -64,6 +33,7 @@ class Signup:
 
     
         new_user = {
+            "id": user_id,
             "name": name,
             "email": email,
             "password": password,
