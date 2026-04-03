@@ -1,62 +1,98 @@
-from app.auth.manage_user import ManageUser
+# from app.auth.manage import ManageUser
+# from app.menu import Menu
+
+
+# class AdminDashboard:
+
+#     def __init__(self):
+#         self.user = ManageUser()
+#         self.menu = Menu()
+
+#     def start(self):
+#         while True:
+
+#             print("\n====== ADMIN DASHBOARD ======")
+#             print("1. Manage Users")
+#             print("2. View Menu")
+#             print("3. Add Menu Item")
+#             print("4. Logout")
+
+#             choice = input("Enter choice: ").strip()
+
+#             if choice == "1":
+#                 self.user.manage_menu()  
+
+#             elif choice == "2":
+#                 self.menu.view_menu()   
+
+#             elif choice == "3":
+#                 self.add_menu_item()     
+
+#             elif choice == "4":
+#                 print("Logging out...")
+#                 break
+
+#             else:
+#                 print("Invalid choice ")
+
+#     # ➕ Add Menu Item
+#     def add_menu_item(self):
+#         name = input("Enter item name: ")
+#         price = input("Enter price: ")
+
+#         if not price.isdigit():
+#             print("Invalid price")
+#             return
+
+#         price = int(price)
+
+#         from app.database.file_handler import FileHandler
+#         file = FileHandler()
+
+#         menu = file.read_file("menu.json")
+
+#         menu.append({
+#             "name": name,
+#             "price": price
+#         })
+
+#         file.write_file("menu.json", menu)
+
+#         print("Item added successfully ")
+
+
+
+
+
+from app.menu.view_menu import Menu
+from app.report.report import Report
+
 
 class AdminDashboard:
 
+    def __init__(self):
+        self.menu = Menu()
+        self.report = Report()
+
     def start(self):
-
-        user_obj =ManageUser()
-
         while True:
 
-            print("\n ======= Admin Dashboard =======")
-            print("1 Add Staff")
-            print("2 View Users")
-            print("3 Delete User")
-            print("4 Search User")
-            print("5 Menu")
-            print("6 Reports")
-            print("7 Back")
-
-            choice = input("Enter choice: ").strip()
-
-            if not choice.isdigit():
-                print("Invaild input")
-                continue
-            choice = int(choice)   
-
-            if choice == 1:
-                user_obj.add_staff()
-
-            elif choice == 2:
-                break
-            else:
-                print("Invalid choice")
-
-    def menu_panel(self, menu_obj):
-
-        while True:
-
-            print("\n--- Menu Management ---")
-            print("1 Add Item")
-            print("2 View Item")
-            print("3 Delete Item")
-            print("4 Back")
+            print("\n====== ADMIN DASHBOARD ======")
+            print("1. Manage Menu")
+            print("2. Report")
+            print("3. Logout")
 
             choice = input("Enter choice: ")
 
-            if not choice.isdigit():
-                continue
+            if choice == "1":
+                self.menu.menu_system()
 
-            choice = int(choice)
+            elif choice == "2":
+                self.report.order_report()
 
-            if choice == 1:
-                menu_obj.add_item()
-
-            elif choice == 2:
-                menu_obj.view_menu()
-
-            elif choice == 3:
-                menu_obj.delete_item()
-
-            elif choice == 4:
+            elif choice == "3":
+                print("Logging out...")
                 break
+
+            else:
+                print("Invalid choice")

@@ -1,4 +1,5 @@
-from app.menu.auth_menu import Menu
+from app.auth.manage  import User
 
-obj = Menu()
-obj.start()
+if __name__ == "__main__":
+    app = User()
+    app.start() 

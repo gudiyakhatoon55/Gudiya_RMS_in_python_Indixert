@@ -1,60 +1,76 @@
-import uuid
-from app.database.file_handler import read_users, write_user
+# from app.database.filehandler import FileHandler
+# import getpass
 
-import msvcrt
+# class Signup:
 
-def input_password(prompt="Enter password: "):
-    print(prompt, end="", flush=True)
+#     def __init__(self):
+#         self.file = FileHandler()
 
-    password = ""
+#     def register(self):
+#         name = input("Enter Name: ")
+#         email = input("Enter Email: ")
+        
+    
+#         password = getpass.getpass("Enter Password: ")
+#         confirm_password = getpass.getpass("Confirm Password: ")
 
-    while True:
-        char = msvcrt.getch()
+        
+#         if password != confirm_password:
+#             print("Passwords do not match!")
+#             return
 
-        if char == b'\r':
-            print()
-            break
-        elif char == b'\x08':
-            if password:
-                password = password[:-1]
-                print("\b \b", end="", flush=True)
-        else:
-            password += char.decode()
-            print("*", end="", flush=True)
+#         user = {
+#             "name": name,
+#             "email": email,
+#             "password": password
+#         }
 
-    return password
+#         self.file.append_file("users.json", user)
+
+#         print("Signup Successfully!")
+
+
+
+from app.database.filehandler import FileHandler
+import getpass
 
 
 class Signup:
 
-    def signup(self):
+    def __init__(self):
+        self.file = FileHandler()
 
-        print("\n ------Signup------")
+    def register(self):
+        print("\n====== SIGNUP ======")
 
-        user_id = str(uuid.uuid4())
 
-        username = input("Enter username: ")
-        email = input("Enter email: ")
-        password = input_password("Enter password: ")
-        role = "staff"
+        name = input("Enter Name: ")
+        email = input("Enter Email: ")
 
-        users = read_users()
+        password = getpass.getpass("Enter Password: ")
+        confirm_password = getpass.getpass("Confirm Password: ")
 
+        if password != confirm_password:
+            print("Passwords do not match ")
+            return
+
+        users = self.file.read_file("users.json")
+
+    
         for user in users:
             if user["email"] == email:
-                print("Email already exists")
-                return role
+                print("Email already exists ")
+                return
 
-        user = {
-            "id": user_id,
-            "username": username,
+    
+        new_user = {
+            "name": name,
             "email": email,
             "password": password,
-            "role": role
+            "role": "staff"
         }
 
-        write_user(user)
+        users.append(new_user)
+        self.file.write_file("users.json", users)
 
-        print("Signup successful")
-
-        return 
+        print("Signup successful ✅ (Role: staff)")

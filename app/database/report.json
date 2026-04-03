@@ -1,0 +1,28 @@
+[
+    {
+        "date": "2026-04-02 13:49:54.923822",
+        "total_sales": 420,
+        "items": [
+            {
+                "name": "Garlic Naan",
+                "qty": 2,
+                "amount": 100
+            },
+            {
+                "name": "Garlic Naan",
+                "qty": 2,
+                "amount": 100
+            },
+            {
+                "name": "Pastry",
+                "qty": 2,
+                "amount": 120
+            },
+            {
+                "name": "Donut",
+                "qty": 2,
+                "amount": 100
+            }
+        ]
+    }
+]

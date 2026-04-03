@@ -1,47 +1,58 @@
-from app.database.file_handler import read_users
+# from app.database.filehandler import FileHandler
+# import getpass
 
-import msvcrt
+# class Login:
 
-def input_password(prompt="Enter password: "):
-    print(prompt, end="", flush=True)
+#     def __init__(self):
+#         self.file = FileHandler()
 
-    password = ""
+#     def login(self):
+#         print("\n====== LOGIN ======")
 
-    while True:
-        char = msvcrt.getch()
+#         email = input("Enter Email: ")
+#         password = getpass.getpass("Enter Password: ")
 
-        if char == b'\r':
-            print()
-            break
-        elif char == b'\x08':
-            if password:
-                password = password[:-1]
-                print("\b \b", end="", flush=True)
-        else:
-            password += char.decode()
-            print("*", end="", flush=True)
+#         users = self.file.read_file("users.json")
 
-    return password
+#         if not users:
+#             print("No users found! Please signup first.")
+#             return False
+
+#         for user in users:
+#             if user["email"] == email and user["password"] == password:
+#                 print("Login Successful ")
+#                 return True
+
+#         return False
+
+
+
+
+from app.database.filehandler import FileHandler
+import getpass
+
 
 class Login:
 
+    def __init__(self):
+        self.file = FileHandler()
+
     def login(self):
+        print("\n====== LOGIN ======")
 
-        print("\n ------Login------")
+        email = input("Enter Email: ")
+        password = getpass.getpass("Enter Password: ")
 
-        email = input("Enter email: ").lower()
-        password = input_password("Enter password: ")
+        users = self.file.read_file("users.json")
 
-        users = read_users()
+        if not users:
+            print("No users found! Please signup first ")
+            return None
 
         for user in users:
-
             if user["email"] == email and user["password"] == password:
+                print("Login successful ")
+                return user.get("role", "staff")  
 
-                print("Login successful")
-                print("Welcome", user["username"])
-
-                return user["role"]  
-
-        print("Invalid email or password")
-        return 
+        print("Invalid email or password ")
+        return None

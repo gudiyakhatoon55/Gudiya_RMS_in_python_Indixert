@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Gudiya",
+        "date": "2026-04-03",
+        "slot": "9-12",
+        "table": 2
+    },
+    {
+        "name": "saloni",
+        "date": "2026-04-02",
+        "slot": "9-12",
+        "table": 2
+    },
+    {
+        "name": "saloni",
+        "date": "2026-04-2",
+        "slot": "12-3",
+        "table": 1
+    }
+]
